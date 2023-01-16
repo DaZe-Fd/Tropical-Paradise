@@ -50,3 +50,47 @@
 		transform-origin: left;
 	}
 }
+
+.nav--active a {
+	animation: navItemsAnimation 0.5s both;
+}
+
+@keyframes navItemsAnimation {
+	from {
+		translate: 200%;
+	}
+
+	to {
+		translate: 0;
+	}
+}
+
+.section-heading {
+	position: relative;
+	margin-bottom: 2em;
+	font-size: 3rem;
+	font-weight: 300;
+	text-transform: uppercase;
+	text-align: center;
+	color: colors.$main-color;
+	letter-spacing: 2px;
+}
+
+.section-padding {
+	padding: 6em 2em;
+}
+
+@media (min-width: 768px) {
+	.section-heading {
+		font-size: 4rem;
+	}
+
+	.section-padding {
+		padding: 8em 2em;
+	}
+}
+@media (min-width: 992px) {
+	.section-heading {
+		font-size: 4.8rem;
+	}	
+}
