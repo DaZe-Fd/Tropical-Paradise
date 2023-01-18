@@ -182,38 +182,6 @@ body {
 		font-size: 1.6rem;
 	}
 }
-//
-//Media
-//
-
-@media (min-width: 576px) {
-	.dreams {
-		&__box {
-			flex-direction: row;
-			justify-content: space-between;
-
-			&-text {
-				width: 55%;
-
-				&--right {
-					text-align: right;
-				}
-			}
-
-			&-img {
-				width: 40%;
-
-				&--right {
-					order: 1;
-				}
-			}
-		}
-		&__img {
-			margin-bottom: 0;
-			// max-height: 300px;
-		}
-	}
-}
 
 // Hero img
 
@@ -267,7 +235,7 @@ body {
 			height: 100%;
 			border-radius: 8px;
 			background-size: cover;
-			transition: rotate 1s, opacity 1s;
+			transition: rotate 0.8s, opacity 0.8s;
 
 			&--first {
 				background-image: colors.$light-blue-gradient, url('../img/palm640.jpg');
@@ -309,7 +277,7 @@ body {
 			border-radius: 8px;
 			opacity: 0;
 			rotate: y 180deg;
-			transition: rotate 1s, opacity 1s;
+			transition: rotate 0.8s, opacity 0.8s;
 
 			&-title {
 				position: absolute;
@@ -352,6 +320,131 @@ body {
 					background-color: colors.$green-color-hover;
 				}
 			}
+		}
+	}
+}
+
+.offers {
+	position: relative;
+	@include heroImages('../img/heroImg640.jpg');
+	overflow: hidden;
+
+	.section-heading {
+		color: colors.$pure-white;
+	}
+
+	&__option {
+		margin: 1em 0;
+		box-shadow: 5px 5px 10px #2e2e2e2e;
+		background-color: colors.$pure-white;
+		overflow: hidden;
+
+		&-img {
+			width: 50%;
+			transition: scale 0.3s;
+
+			&:hover {
+				scale: 1.1;
+			}
+		}
+
+		&-info {
+			width: 50%;
+			padding: 2em;
+			background-color: colors.$pure-white;
+			z-index: 10;
+		}
+
+		&-heading {
+			margin-bottom: 0.5em;
+			font-size: 2.4rem;
+			font-weight: 300;
+		}
+
+		&-text {
+			margin-bottom: 0.5em;
+			font-size: 1.3rem;
+			color: colors.$dark;
+		}
+
+		&-btn {
+			margin-top: 1em;
+			padding: 0.8em;
+			width: 100%;
+			color: colors.$pure-white;
+			background-color: colors.$main-color;
+			border: none;
+			border-radius: 8px;
+			cursor: pointer;
+
+			&::before {
+				background-color: colors.$secondary-color;
+			}
+		}
+	}
+}
+
+//
+//Media
+//
+
+@media (min-width: 576px) {
+	.dreams {
+		&__box {
+			flex-direction: row;
+			justify-content: space-between;
+
+			&-text {
+				width: 55%;
+
+				&--right {
+					text-align: right;
+				}
+			}
+
+			&-img {
+				width: 40%;
+
+				&--right {
+					order: 1;
+				}
+			}
+		}
+		&__img {
+			margin-bottom: 0;
+			// max-height: 300px;
+		}
+	}
+
+	.offers {
+		&__option {
+			display: flex;
+			margin: 2em 0;
+			width: 100%;
+
+			&-img {
+				width: 50%;
+				height: auto;
+
+				&--right {
+					order: 1;
+				}
+			}
+		}
+
+		&-info {
+			display: flex;
+			flex-direction: column;
+			justify-content: space-between;
+		}
+
+		&-heading {
+			margin-bottom: 0.5em;
+			font-size: 3.6rem;
+		}
+
+		&-btn {
+			padding: 1em;
 		}
 	}
 }
@@ -412,6 +505,19 @@ body {
 			margin: 2em 0;
 		}
 	}
+
+	.offers {
+		&__option {
+			&-img {
+				width: 100%;
+				object-fit: cover;
+			}
+
+			&-info {
+				width: 100%;
+			}
+		}
+	}
 }
 
 @media (min-width: 992px) {
@@ -465,6 +571,21 @@ body {
 		hr {
 			width: 60%;
 			max-width: 900px;
+		}
+	}
+
+	.offers {
+		background-image: colors.$blue-gradient, url('../img/heroImg1920.jpg');
+
+		&__option {
+			&-img {
+				object-fit: cover;
+				height: 300px;
+			}
+
+			&-text {
+				font-size: 1.6rem;
+			}
 		}
 	}
 }
