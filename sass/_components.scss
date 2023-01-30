@@ -11,7 +11,7 @@
 	position: absolute;
 	height: 40px;
 	width: 60%;
-	
+
 	background-color: colors.$pure-white;
 
 	&-left {
@@ -67,6 +67,16 @@
 	}
 }
 
+@keyframes bounceIcon {
+	from {
+		translate: 50%;
+	}
+
+	to {
+		translate: 0;
+	}
+}
+
 .section-heading {
 	position: relative;
 	margin-bottom: 2em;
@@ -94,5 +104,5 @@
 @media (min-width: 992px) {
 	.section-heading {
 		font-size: 4.8rem;
-	}	
+	}
 }

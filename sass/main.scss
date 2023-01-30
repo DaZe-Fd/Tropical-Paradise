@@ -20,8 +20,6 @@ body {
 	font-size: 1.6rem;
 }
 
-
-
 //NAV
 
 .nav {
@@ -120,7 +118,7 @@ body {
 
 .black-bars-color,
 .black-bars-color::after,
-.black-bars-color::before{
+.black-bars-color::before {
 	background-color: colors.$dark;
 }
 
@@ -180,6 +178,12 @@ body {
 	&__img {
 		width: 100%;
 		margin-bottom: 1em;
+		border-radius: 15px;
+		transition: scale 0.3s;
+
+		&:hover {
+			scale: 0.95;
+		}
 	}
 
 	&__title {
@@ -264,10 +268,11 @@ body {
 				position: absolute;
 				bottom: 30px;
 				right: 30px;
-				font-size: 1.8rem;
+				font-size: 2rem;
 
 				i {
 					margin-right: 0.3em;
+					animation: bounceIcon 0.8s infinite alternate;
 				}
 			}
 		}
@@ -290,11 +295,10 @@ body {
 			&-title {
 				position: absolute;
 				left: 50%;
-				top: 1.2em;
+				top: 1em;
 				font-size: 3.2rem;
-				translate: -50% 0;
 				font-family: 'Dancing Script', cursive;
-				font-size: 3.2rem;
+				translate: -50% 0;
 			}
 			&-list {
 				margin: 0 auto;
@@ -303,7 +307,7 @@ body {
 
 				&-item {
 					padding: 1em;
-					font-size: 1.4rem;
+					font-size: 1.7rem;
 					border-bottom: 1px solid colors.$light-white;
 
 					&:last-child {
@@ -346,6 +350,7 @@ body {
 		box-shadow: 5px 5px 10px #2e2e2e2e;
 		background-color: colors.$pure-white;
 		overflow: hidden;
+		border-radius: 15px;
 
 		&-img {
 			width: 50%;
@@ -524,7 +529,7 @@ body {
 		}
 
 		&:hover {
-			color: colors.$light-white;
+			color: colors.$pure-white;
 		}
 	}
 
@@ -546,6 +551,9 @@ body {
 
 			&-text {
 				width: 55%;
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
 
 				&--right {
 					text-align: right;
@@ -560,6 +568,7 @@ body {
 				}
 			}
 		}
+
 		&__img {
 			margin-bottom: 0;
 			// max-height: 300px;
@@ -598,6 +607,19 @@ body {
 		}
 	}
 }
+@media (max-width: 576px) {
+	.dreams {
+		&__title {
+			text-align: center;
+		}
+	}
+
+	.contact {
+		&__form-btn {
+			width: 50%;
+		}
+	}
+}
 
 @media (min-width: 768px) {
 	.white-block {
@@ -619,13 +641,13 @@ body {
 	}
 
 	.dreams {
-		&__text {
-			font-size: 2rem;
+		&__box-text {
+			font-size: 2.5rem;
 		}
 	}
 
 	.hero-img {
-		padding: 30rem 2em;
+		padding: 20rem 2em;
 
 		hr {
 			margin: 0 auto;
@@ -651,7 +673,7 @@ body {
 	.footer {
 		&__boxes {
 			display: flex;
-			justify-content: space-between;
+			justify-content: center;
 		}
 		&__box-desktop {
 			display: block;
@@ -673,14 +695,44 @@ body {
 
 		&__box-list {
 			list-style: none;
+			display: flex;
+			flex-direction: column;
+			align-items: flex-start;
 		}
 
 		&__box-list-item {
 			margin-bottom: 1em;
+			transition: 0.3s;
+
+			a::before,
+			a::after {
+				transition: 0.3s;
+			}
 
 			a {
+				position: relative;
 				color: colors.$pure-white;
 				text-decoration: none;
+				z-index: 0;
+
+				&::after {
+					content: '';
+					position: absolute;
+					bottom: 0;
+					left: 0;
+					height: 0;
+					width: 100%;
+					background-color: #fff;
+					z-index: -1;
+				}
+
+				&:hover {
+					color: #000000;
+				}
+
+				&:hover::after {
+					height: 100%;
+				}
 			}
 		}
 	}
@@ -709,6 +761,55 @@ body {
 	.reviews.section-padding {
 		padding: 6em 0;
 	}
+
+	.footer {
+		&__boxes {
+			display: flex;
+		}
+		&__box-desktop {
+			display: block;
+		}
+
+		&__box {
+			width: 25%;
+			font-size: 1.4rem;
+
+			&:first-child {
+				width: 50%;
+			}
+			p {
+				display: none;
+			}
+
+			&-link {
+				font-size: 3rem;
+			}
+		}
+
+		&__box-title {
+			font-size: 1.5rem;
+
+			i {
+				font-size: 4rem;
+			}
+		}
+
+		&__box-list {
+			list-style: none;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			a {
+				text-decoration: none;
+				color: colors.$pure-white;
+				padding: 1em 0;
+			}
+
+			&-item {
+				margin-bottom: 1em;
+			}
+		}
+	}
 }
 
 @media (min-width: 992px) {
@@ -735,9 +836,6 @@ body {
 			margin: 5em 0;
 
 			&-text {
-				display: flex;
-				flex-direction: column;
-				justify-content: flex-end;
 				margin-bottom: 2.5em;
 			}
 		}
@@ -752,7 +850,7 @@ body {
 	}
 
 	.hero-img {
-		padding: 40rem 2em;
+		padding: 25rem 2em;
 		background-image: colors.$blue-gradient, url('../img/tahiti1920.jpg');
 
 		&__title {
